@@ -1,0 +1,10 @@
+SELECT pssv.VENDOR_SITE_CODE,
+       pssv.ADDRESS_LINE1,
+       pssv.ADDRESS_LINE2,
+       pssv.ADDRESS_LINE3,
+       pssv.ADDRESS_LINE4,
+       pssv.CITY,
+       pssv.STATE,
+       pssv.COUNTRY,
+       pssv.ZIP
+FROM POZ_SUPPLIER_SITES_V pssv
