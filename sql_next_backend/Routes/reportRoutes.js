@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { saveReportToFile } = require('../models/reportModel');
+const { saveReportToExcel } = require('../models/reportModel');
 const { createDataModelXml} = require('../models/sqlModel');
 const { extractOracleError } = require('../models/oracleError');
 const { callCreateObjectSoapApi, callRunReportApi } = require('../models/soapApiModel');
@@ -61,7 +61,7 @@ router.post('/frontend-update', async (req, res) => {
       const reportCsv = await callRunReportApi(reportFilePath, userID, password);
   
       // Save the report to the server
-      const filePath = await saveReportToFile(reportCsv, reportName); // Save and get file path
+      const filePath = await saveReportToExcel(reportCsv, reportName); // Save and get file path
   
    // Return the file path in response
     res.status(200).json({
@@ -80,8 +80,9 @@ router.post('/frontend-update', async (req, res) => {
   
   // New download endpoint
   router.get('/download-report/:fileName', (req, res) => {
-    const fileName = req.params.fileName + '.xlxs';
-    const filePath = path.join(__dirname, 'reports', fileName);
+    const reportDirectory = path.join(__dirname, '..', 'models');
+    const fileName = req.params.fileName + '.xlsx';
+    const filePath = path.join(reportDirectory, 'reports', fileName);
   
     console.log("File Path: ", filePath); 
     console.log("File Name: ", fileName); 

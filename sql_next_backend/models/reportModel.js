@@ -31,9 +31,8 @@ function createReportXml(reportName, sqlQuery, reportId) {
   </report>`;
 }
 
-// New function to save the CSV report
-const saveReportToFile = async (csvData, reportName) => {
-  const reportDirectory = path.join(__dirname, "reports");
+const saveReportToExcel = async (csvData, reportName) => {
+  const reportDirectory = path.join(__dirname, 'reports');
   if (!fs.existsSync(reportDirectory)) {
     fs.mkdirSync(reportDirectory);
   }
@@ -41,55 +40,48 @@ const saveReportToFile = async (csvData, reportName) => {
   const filePath = path.join(reportDirectory, `${reportName}.xlsx`);
 
   const workbook = new ExcelJS.Workbook();
-  const sheet = workbook.addWorksheet("Data");
+  const sheet = workbook.addWorksheet('Data');
 
   // Convert CSV data into an array of rows
   const rows = csvData
     .trim() // Remove leading/trailing spaces
-    .split("\n")
-    .map((row) => row.split(","));
+    .split('\n')
+    .map(row => row.split(','));
 
   if (rows.length === 0 || rows[0].length === 0) {
     throw new Error("CSV data is empty or invalid.");
   }
 
   // Extract headers from first row
-  const headers = rows[0].map((header) => header?.trim() || "Column"); // Ensure headers exist
+  const headers = rows[0].map(header => header?.trim() || "Column"); // Ensure headers exist
 
   // Define columns properly for auto-sizing
   sheet.columns = headers.map((header, index) => ({
     header: header || `Column${index + 1}`, // Assign default header if missing
     key: `col_${index}`, // Unique key
-    width: 10, // Default width (will adjust later)
+    width: 10 // Default width (will adjust later)
   }));
 
   // Add rows (excluding the header row)
-  rows.slice(1).forEach((row) => sheet.addRow(row));
+  rows.slice(1).forEach(row => sheet.addRow(row));
 
   // Apply header formatting
   const headerRow = sheet.getRow(1);
   headerRow.eachCell((cell) => {
-    cell.font = { bold: true, color: { argb: "000000" } }; // Black text
-    cell.fill = {
-      type: "pattern",
-      pattern: "solid",
-      fgColor: { argb: "D3D3D3" },
-    }; // Light gray background
-    cell.alignment = { horizontal: "center", vertical: "center" };
+    cell.font = { bold: true, color: { argb: '000000' } }; // Black text
+    cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'D3D3D3' } }; // Light gray background
+    cell.alignment = { horizontal: 'center', vertical: 'center' };
   });
 
   // Apply border and alignment to all cells
   sheet.eachRow((row, rowNumber) => {
     row.eachCell((cell) => {
-      cell.alignment = {
-        horizontal: rowNumber === 1 ? "center" : "right",
-        vertical: "center",
-      };
+      cell.alignment = { horizontal: rowNumber === 1 ? 'center' : 'right', vertical: 'center' };
       cell.border = {
-        top: { style: "thin" },
-        left: { style: "thin" },
-        bottom: { style: "thin" },
-        right: { style: "thin" },
+        top: { style: 'thin' },
+        left: { style: 'thin' },
+        bottom: { style: 'thin' },
+        right: { style: 'thin' }
       };
     });
   });
@@ -110,4 +102,4 @@ const saveReportToFile = async (csvData, reportName) => {
   return filePath;
 };
 
-module.exports = { createReportXml, saveReportToFile };
+module.exports = { createReportXml, saveReportToExcel };
