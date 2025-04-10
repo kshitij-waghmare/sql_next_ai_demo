@@ -1,0 +1,52 @@
+.appHeader {
+    display: flex;
+    gap: 20px;
+    padding: 16px;
+    background-color: #2e3b4e;
+    color: white;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    /* min-height: 200px; */
+    /* opacity: 0; */
+}
+
+.leftHeader {
+    font-weight: bold;
+    font-size: 18px;
+    flex-grow: 1;
+    margin-left: 16px;
+}
+
+.rightHeader {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-right: 15px;
+    font-size: 16px;
+}
+
+.downloadRdLink {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    text-decoration: none;
+    color: inherit;
+    gap: 5px;
+    margin-left: 5px;
+}
+
+.downloadRdWordIcon {
+    height: 30px;
+    margin-left: 3px;
+}
+
+.helpBtn {
+    cursor: pointer;
+}
+
+.helpBtn:hover,
+.downloadRdLink:hover {
+    color: rgb(180, 174, 174);
+}

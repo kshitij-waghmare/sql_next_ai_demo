@@ -1,0 +1,15 @@
+.reportContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.reportHeader {
+    color: #277463;
+    /* margin-left: 20px; */
+    font-size: 16px;
+    align-self: center;
+    /* margin-top: -20px; */
+  }
+.noDataMsg {
+    color: #a51010;
+}

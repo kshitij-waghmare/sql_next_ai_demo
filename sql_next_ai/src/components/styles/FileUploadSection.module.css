@@ -1,0 +1,233 @@
+.greyBox {
+    background-color: #efefef;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.uploadHeader {
+    letter-spacing: 0px;
+    color: #242424;
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 15px;
+    color: rgb(42, 38, 38);
+}
+
+.fileStatusBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+.fileIcon {
+    width: 39px;
+    font-size: 30px;
+    height: 36px;
+    margin-right: 13px;
+    margin-left: 3px;
+}
+
+.fileDetails {
+    margin-left: 3px;
+    flex-grow: 1;
+}
+
+.fileName {
+    letter-spacing: 0px;
+    color: #242424;
+    padding-right: 10px;
+    padding-top: 4px;
+    font-weight: bold;
+    font-size: 15px;
+    word-break: break-word;
+}
+
+.uploadDate,
+.interactionId {
+    color: grey;
+    letter-spacing: 0px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.uploadDate {
+    margin-top: 5px;
+}
+
+.interactionId {
+    margin-bottom: 4px;
+}
+
+.deleteBtn,
+.downloadBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.deleteIcon,
+.downloadIcon {
+    width: 35px;
+    height: 26px;
+}
+
+.fileStatusBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+.noFile {
+    letter-spacing: 0px;
+    color: grey;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.attachFileBtn {
+    padding: 15px 0px;
+    font-weight: bold;
+    font-size: 13px;
+    display: flex;
+    gap: 10px;
+}
+
+.fileUploadBtn,
+.fileResetBtn {
+    background-color: #085db8;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    letter-spacing: 0px;
+    transition: background-color 0.3s ease;
+}
+/* Prevent hover effect when disabled */
+ .disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+.errorMessage {
+    color: #a51010;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px;
+    margin: 10px 0px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.successMessage {
+    color: #10a51c;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 30px;
+    padding: 5px;
+    background-color: #c5eed8;
+    border: 1px solid #c6f5cf;
+    border-radius: 5px;
+    text-align: left;
+}
+
+/* Timeline */
+.timelineContainer {
+    padding: 10px 0px;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
+
+.timelinePoint {
+    background-color: transparent;
+    color: rgb(151, 151, 151);
+    letter-spacing: 0px;
+    text-align: left;
+    position: relative;
+    padding-left: 30px;
+    font-weight: bold;
+    z-index: 2;
+    font-size: 14px;
+}
+
+.timelinePoint::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 5px;
+    width: 12px;
+    height: 12px;
+    background-color: darkgray;
+    border-radius: 50%;
+    z-index: 3;
+}
+
+.timelineConnector {
+    width: 2px;
+    height: 50px;
+    background-color: darkgray;
+    position: absolute;
+    left: 10px;
+    top: 0;
+    z-index: 1;
+}
+
+.timelinePoint:first-child .timelineConnector,
+.timelinePoint:last-child .timelineConnector {
+    display: none;
+}
+
+.timelinePoint:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+.uploaded {
+    color: black;
+}
+
+.timelinePoint .uploaded {
+    color: black;
+    font-weight: bold;
+}
+
+.timelinePoint.uploaded::before {
+    background-color: black;
+}
+.noteText {
+    /* margin-top: 20px;  */
+    /* margin-left: 50px;  */
+    letter-spacing: 0px;
+    color: #164188;
+    font-weight: bold;
+    font-size: 13px;
+    background-color: #dcd7f8;
+    /* Light blue background */
+    padding: 8px;
+    border: 1px solid #c6c6f5;
+    /* Border with light blue color */
+    border-radius: 5px;
+    /* Rounded corners */
+    text-align: left;
+    /* Center align the text */
+    /* margin-bottom: 20px; */
+    /* width: fit-content; */
+  
+  }

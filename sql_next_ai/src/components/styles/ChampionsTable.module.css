@@ -1,0 +1,34 @@
+.championsTitle {
+    /* margin-top: 0px; */
+    margin-bottom: 20px;
+}
+
+.championsTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.championsTable th {
+    background-color: #efefef;
+    /* Light grey for headers */
+    padding: 10px;
+    /* Padding for table cells */
+    border: 1px solid black;
+    /* Dark border for headers */
+    font-size: 12px;
+    /* Decrease font size for table data */
+}
+
+.championsTable td {
+    background-color: white;
+    /* White for table rows */
+    color: rgb(44, 43, 108);
+    padding: 10px;
+    /* Padding for table cells */
+    border: 1px solid black;
+    /* Dark border for cells */
+    font-size: 12px;
+    /* Decrease font size for table data */
+    font-weight: bold;
+    text-align: center;
+}

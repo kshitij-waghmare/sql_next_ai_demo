@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0
+}
+
+body {
+  font-family: 'Open-Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  /* overflow-y: auto; */
+}
+
+textarea {
+  font-family: 'Verdana', sans-serif;
+  font-size: 12px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+:global(.__intelli_main-button) {
+  margin-right: 25px !important;
+  padding: 1px 6px;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.content {
+  padding: 20px;
+  padding-top: 30px;
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.wrapper {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.leftWrapper {
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rightWrapper {
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+@media (max-width: 900px) {
+  .wrapper {
+    display: flex;
+    /* Ensure it's a flex container */
+    flex-direction: column;
+  }
+
+  .leftWrapper,
+  .rightWrapper {
+    width: 100%;
+  }
+}
