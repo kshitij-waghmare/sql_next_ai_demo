@@ -7,7 +7,6 @@ import { safeLogUserAction } from "../utils/logUserAction";
 import { setSqlQuery, setReportStatus, resetSqlState } from "../features/sqlTestSlice";
 import { useMsal } from "@azure/msal-react";
 import { useUser } from "../auth/ssoAuth/msal";
-import { safeLogUserAction } from "../utils/logUserAction";
 
 const SQLTestSection = () => {
   const API_URL = import.meta.env.VITE_API_URL;
