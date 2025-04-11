@@ -5,9 +5,14 @@ import axios from "axios";
 import { safeLogUserAction } from "../utils/logUserAction";
 
 import { setSqlQuery, setReportStatus, resetSqlState } from "../features/sqlTestSlice";
+import { useMsal } from "@azure/msal-react";
+import { useUser } from "../auth/ssoAuth/msal";
+import { safeLogUserAction } from "../utils/logUserAction";
 
 const SQLTestSection = () => {
   const API_URL = import.meta.env.VITE_API_URL;
+  const { instance } = useMsal();
+  const { user } = useUser();
   const dispatch = useDispatch();
   const { sqlQuery, reportStatus } = useSelector((state) => state.sqlTest);
 
@@ -119,6 +124,7 @@ const SQLTestSection = () => {
         uniqueId: newUniqueId,
         sqlQuery: sqlQuery,
         created_by: typeof user !== "undefined" ? user.id : "unknown",
+        created_by: user ? user.id : "unknown",
         created_on: timestamp,
       });
 
@@ -153,16 +159,15 @@ const SQLTestSection = () => {
         type: "error",
         text: `Error in generating report ${fileName}.xlsx!`,
       });
-      //   alert("Failed to save SQL file. Please try again.");
     } finally {
       try {
         await safeLogUserAction(
           typeof instance !== "undefined" && instance !== null ? instance : undefined,
           "Clicked on SQL Test Button",
-          `User Tested the SQL Query after clicking on Test Button.`
+          `User Tested the SQL Query after clicking on Test Button..`
         );
       } catch (error) {
-        dispatch(setErrorMessage(`Failed to log user action`));
+        console.warn("Unable to Log User Action");
       }
     }
   };
@@ -171,8 +176,6 @@ const SQLTestSection = () => {
     dispatch(resetSqlState());
     setReportGenMsg({ type: "", text: "" });
     setOracleErrorMsg("");
-    // setIsDownloadButton('');
-    // setCsvData('');
   };
 
   const handleDownloadReport = async () => {

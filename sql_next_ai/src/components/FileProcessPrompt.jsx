@@ -6,12 +6,18 @@ import rdUploadPortalImage from "../assets/rd-upload-portal-chatbot.png";
 import axios from "axios";
 import { resetFileUploadSlice, setErrorMessage } from "../features/fileUploadSlice";
 import { useGlobalContext } from "../context/GlobalContext";
+import { useMsal } from "@azure/msal-react";
+import { useUser } from "../auth/ssoAuth/msal";
 import { safeLogUserAction } from "../utils/logUserAction";
 
 const FileProcessPrompt = () => {
   const FTP_API_URL = import.meta.env.VITE_FTP_API_URL;
   const USERNAME = import.meta.env.VITE_FTP_API_USERNAME;
   const PASSWORD = import.meta.env.VITE_FTP_API_PASSWORD;
+
+  const { instance } = useMsal();
+  const { user } = useUser();
+
   const { interactionId } = useSelector((state) => state.fileUpload);
   const { files, setFiles } = useGlobalContext();
   const { isProcessConfirmed, isFileProcessed, isFileProcessLoading } = useSelector((state) => state.fileProcess);

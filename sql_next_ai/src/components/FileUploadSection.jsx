@@ -7,18 +7,25 @@ import deleteIcon from "../assets/delete.jpg";
 import { setIsAttachButtonDisabled, setErrorMessage, setInteractionId } from "../features/fileUploadSlice";
 import { resetFileProcessSlice } from "../features/fileProcessSlice";
 import { safeLogUserAction } from "../utils/logUserAction";
+import { useMsal } from "@azure/msal-react";
+import { useUser } from "../auth/ssoAuth/msal";
 import { useGlobalContext } from "../context/GlobalContext";
 
 const FileUploadSection = () => {
   const API_URL = import.meta.env.VITE_API_URL;
+  
+  // SSO Specific Code
+  const { instance } = useMsal();
+  const {user} = useUser();
+
   const fileInputRef = useRef(null);
   const dispatch = useDispatch();
-
+  
   const { isFileProcessed } = useSelector((state) => state.fileProcess);
-
+  
   const { errorMessage, successMessage, isAttachButtonDisabled } = useSelector((state) => state.fileUpload);
-  const { files, setFiles } = useGlobalContext();
-
+  const { files, setFiles} = useGlobalContext();
+  
   const [filesUploaded, setFilesUploaded] = useState(false);
 
   useEffect(() => {
