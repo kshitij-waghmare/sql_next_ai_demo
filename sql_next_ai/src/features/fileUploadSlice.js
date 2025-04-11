@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  files: [],
   errorMessage: '',
   successMessage: '',
   isAttachButtonDisabled: false,
@@ -12,9 +11,6 @@ const fileUploadSlice = createSlice({
   name: 'fileUpload',
   initialState,
   reducers: {
-    setFiles: (state, action) => {
-      state.files = action.payload;
-    },
     setErrorMessage: (state, action) => {
       state.errorMessage = action.payload;
     },
@@ -33,7 +29,6 @@ const fileUploadSlice = createSlice({
 });
 
 export const {
-  setFiles,
   setErrorMessage,
   setSuccessMessage,
   setIsAttachButtonDisabled,

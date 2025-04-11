@@ -5,12 +5,15 @@ import styles from "./styles/FileProcessPrompt.module.css";
 import rdUploadPortalImage from "../assets/rd-upload-portal-chatbot.png";
 import axios from "axios";
 import { resetFileUploadSlice, setErrorMessage } from "../features/fileUploadSlice";
+import { useGlobalContext } from "../context/GlobalContext";
+import { safeLogUserAction } from "../utils/logUserAction";
 
 const FileProcessPrompt = () => {
   const FTP_API_URL = import.meta.env.VITE_FTP_API_URL;
   const USERNAME = import.meta.env.VITE_FTP_API_USERNAME;
   const PASSWORD = import.meta.env.VITE_FTP_API_PASSWORD;
-  const { files, interactionId } = useSelector((state) => state.fileUpload);
+  const { interactionId } = useSelector((state) => state.fileUpload);
+  const { files, setFiles } = useGlobalContext();
   const { isProcessConfirmed, isFileProcessed, isFileProcessLoading } = useSelector((state) => state.fileProcess);
   const dispatch = useDispatch();
 
@@ -47,20 +50,22 @@ const FileProcessPrompt = () => {
       } catch (error) {
         dispatch(setErrorMessage("FTP upload failed"));
         dispatch(resetFileProcessSlice());
+      } finally {
+        try {
+          await safeLogUserAction(
+            typeof instance !== "undefined" && instance !== null ? instance : undefined,
+            "Clicked Yes to Process RD",
+            `User clicked Yes for Processing RD with Interaction ID: ${interactionId}.`
+          );
+        } catch (error) {
+          dispatch(setErrorMessage(`Failed to log user action`));
+        }
       }
     }
-    // const account = instance.getAllAccounts()[0];
-    //   const userInfo = await fetchUserInfo(instance);
-    //   // Log the request data before sending it
-    //   const logResponse = await axios.post(`${apiUrl}/log-user-action`, {
-    //   userId: userInfo.id,
-    //   action: 'Clicked Yes to Process RD',
-    //   details: `User clicked Yes for Processing RD with Interaction ID: ${interactionId}`,
-    //   userInfo: userInfo,
-    //   });
   };
 
   const handleNoButtonClick = () => {
+    setFiles([]);
     dispatch(resetFileUploadSlice());
     dispatch(resetFileProcessSlice());
     // setCsvData('');

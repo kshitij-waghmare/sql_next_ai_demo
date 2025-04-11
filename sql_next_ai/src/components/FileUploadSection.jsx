@@ -4,13 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import wordIcon from "../assets/word-icon.png";
 import deleteIcon from "../assets/delete.jpg";
-import {
-  setFiles,
-  setIsAttachButtonDisabled,
-  setErrorMessage,
-  setInteractionId,
-} from "../features/fileUploadSlice";
+import { setIsAttachButtonDisabled, setErrorMessage, setInteractionId } from "../features/fileUploadSlice";
 import { resetFileProcessSlice } from "../features/fileProcessSlice";
+import { safeLogUserAction } from "../utils/logUserAction";
+import { useGlobalContext } from "../context/GlobalContext";
 
 const FileUploadSection = () => {
   const API_URL = import.meta.env.VITE_API_URL;
@@ -19,20 +16,19 @@ const FileUploadSection = () => {
 
   const { isFileProcessed } = useSelector((state) => state.fileProcess);
 
-  const { files, errorMessage, successMessage, isAttachButtonDisabled } = useSelector(
-    (state) => state.fileUpload
-  );
+  const { errorMessage, successMessage, isAttachButtonDisabled } = useSelector((state) => state.fileUpload);
+  const { files, setFiles } = useGlobalContext();
 
   const [filesUploaded, setFilesUploaded] = useState(false);
 
   useEffect(() => {
     if (Array.isArray(files) && files.length === 0) {
       fileInputRef.current.value = null;
+      setFilesUploaded(false); // if files are removed, then flag is toggled to false
     }
   }, [files]);
 
   const handleFileUpload = async (event) => {
-    // setErrorDownload(''); @ks
     const newFiles = Array.from(event.target.files);
     const allowedTypes = ["application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
     const validFiles = newFiles.filter((file) => allowedTypes.includes(file.type));
@@ -57,14 +53,14 @@ const FileUploadSection = () => {
         file: fileObj,
       }));
 
-      dispatch(setFiles(updatedFiles));
+      setFiles(updatedFiles);
       setFilesUploaded(true);
 
       const formData = new FormData();
       updatedFiles.forEach((fileObj) => {
         formData.append("files", fileObj.file);
         formData.append("interactionId", fileObj.interactionId);
-        formData.append("user", "John Doe");
+        formData.append("user", typeof user !== "undefined" ? JSON.stringify(user) : "unknown");
       });
 
       const uploadResponse = await axios.post(`${API_URL}/documents/upload`, formData, {
@@ -78,17 +74,17 @@ const FileUploadSection = () => {
     } catch (error) {
       dispatch(setErrorMessage("Error uploading files: " + (error.response ? error.response.data : error.message)));
       dispatch(setIsAttachButtonDisabled(false));
+    } finally {
+      try {
+        await safeLogUserAction(
+          typeof instance !== "undefined" && instance !== null ? instance : undefined,
+          "File Uploaded",
+          "User has uploaded RD."
+        );
+      } catch (error) {
+        dispatch(setErrorMessage(`Failed to log user action`));
+      }
     }
-    // const account = instance.getAllAccounts()[0];
-    // const userInfo = await fetchUserInfo(instance);
-
-    // Log the request data before sending it
-    // const logResponse = await axios.post(`${API_URL}/log-user-action`, {
-    //   userId: userInfo.id,
-    //   action: 'File Uploaded',
-    //   details: `User has uploaded RD.`,
-    //   userInfo: userInfo,
-    // });
   };
 
   const handleDeleteFile = async () => {
@@ -109,9 +105,9 @@ const FileUploadSection = () => {
       });
 
       if (response.status === 200) {
-        dispatch(setFiles([]));
-        dispatch(setInteractionId(null));
+        setFiles([]);
         setFilesUploaded(false);
+        dispatch(setInteractionId(null));
         dispatch(setErrorMessage(""));
         dispatch(setIsAttachButtonDisabled(false));
         dispatch(resetFileProcessSlice());

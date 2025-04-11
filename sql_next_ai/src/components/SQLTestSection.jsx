@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./styles/SQLTestSection.module.css";
 import axios from "axios";
+import { safeLogUserAction } from "../utils/logUserAction";
 
 import { setSqlQuery, setReportStatus, resetSqlState } from "../features/sqlTestSlice";
 
@@ -16,7 +17,7 @@ const SQLTestSection = () => {
   const NO_ORACLE_ERROR = "No Oracle error found";
 
   const [reportGenMsg, setReportGenMsg] = useState({ type: "", text: "" });
-  const [oracleErrorMsg, setOracleErrorMsg] = useState('');
+  const [oracleErrorMsg, setOracleErrorMsg] = useState("");
 
   const handleChange = (e) => {
     dispatch(setSqlQuery(e.target.value));
@@ -71,10 +72,8 @@ const SQLTestSection = () => {
   };
 
   const handleTestButtonClick = async () => {
-
-    setReportGenMsg({type: '', text: ''})
-    setOracleErrorMsg('');
-
+    setReportGenMsg({ type: "", text: "" });
+    setOracleErrorMsg("");
 
     const newUniqueId = generateUniqueId();
     dispatch(setReportStatus({ uniqueId: newUniqueId, isProcessing: true })); // Store the unique ID in state
@@ -106,7 +105,7 @@ const SQLTestSection = () => {
 
     try {
       if (!fileName) {
-        setReportGenMsg({type: 'error', text: "Report file name is missing."});
+        setReportGenMsg({ type: "error", text: "Report file name is missing." });
         return;
       }
 
@@ -119,8 +118,7 @@ const SQLTestSection = () => {
       await axios.post(`${API_URL}/sql/insert`, {
         uniqueId: newUniqueId,
         sqlQuery: sqlQuery,
-        // created_by: typeof user !== undefined ? user.id : 'unknown', //@ks
-        created_by: "john_doe",
+        created_by: typeof user !== "undefined" ? user.id : "unknown",
         created_on: timestamp,
       });
 
@@ -144,8 +142,8 @@ const SQLTestSection = () => {
     } catch (error) {
       if (error.response && error.response.data.oracleError) {
         // if(error.response.daa.oracleError !== NO_ORACLE_ERROR)
-            setOracleErrorMsg(error.response.data.oracleError); // Show Oracle error from the server
-      } 
+        setOracleErrorMsg(error.response.data.oracleError); // Show Oracle error from the server
+      }
       dispatch(
         setReportStatus({
           isProcessing: false,
@@ -156,13 +154,23 @@ const SQLTestSection = () => {
         text: `Error in generating report ${fileName}.xlsx!`,
       });
       //   alert("Failed to save SQL file. Please try again.");
+    } finally {
+      try {
+        await safeLogUserAction(
+          typeof instance !== "undefined" && instance !== null ? instance : undefined,
+          "Clicked on SQL Test Button",
+          `User Tested the SQL Query after clicking on Test Button.`
+        );
+      } catch (error) {
+        dispatch(setErrorMessage(`Failed to log user action`));
+      }
     }
   };
 
   const handleClearButtonClick = () => {
     dispatch(resetSqlState());
-    setReportGenMsg({type: '', text: ''})
-    setOracleErrorMsg('');
+    setReportGenMsg({ type: "", text: "" });
+    setOracleErrorMsg("");
     // setIsDownloadButton('');
     // setCsvData('');
   };
@@ -183,7 +191,7 @@ const SQLTestSection = () => {
       link.download = reportFileName + ".xlsx";
       link.click();
       setReportGenMsg({ type: "success", text: `Report ${reportFileName}.xlsx downloaded successfully!` });
-      dispatch(setReportStatus({isDownloading: false}));
+      dispatch(setReportStatus({ isDownloading: false }));
     } catch (error) {
       setReportGenMsg({ type: "error", text: `Error downloading Report ${reportFileName}.xlsx` });
     }
@@ -202,10 +210,10 @@ const SQLTestSection = () => {
           ></textarea>
         </div>
         <div className={styles.testBtnWrapper}>
-          <button className={styles.clearBtn} disabled={sqlQuery === ""&& csvData === ""} onClick={handleClearButtonClick}>
+          <button className={styles.clearBtn} disabled={sqlQuery === "" && csvData === ""} onClick={handleClearButtonClick}>
             CLEAR
           </button>
-          <button className={styles.testBtn} disabled={(sqlQuery === "" )} onClick={handleTestButtonClick} title="TEST">
+          <button className={styles.testBtn} disabled={sqlQuery === ""} onClick={handleTestButtonClick} title="TEST">
             TEST
           </button>
         </div>
@@ -217,7 +225,7 @@ const SQLTestSection = () => {
       )}
 
       {/*Appears when the testing is in process*/}
-      {(isProcessing) && <div className={styles.loadingMessage}>{LOADING_MESSAGE}</div>}
+      {isProcessing && <div className={styles.loadingMessage}>{LOADING_MESSAGE}</div>}
 
       <div className={styles.downloadButtonWrapper}>
         <button className={styles.downloadButton} onClick={handleDownloadReport} disabled={!csvData}>

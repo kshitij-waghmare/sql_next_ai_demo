@@ -1,35 +1,36 @@
-import { useRef } from "react";
-import styles from "./App.module.css";
-import ChampionsTable from "./components/ChampionsTable";
-import FileProcessPrompt from "./components/FileProcessPrompt";
-import FileUploadSection from "./components/FileUploadSection";
+import React, { useEffect, useState } from "react";
 
-import Header from "./components/Header";
-import { ReportTable } from "./components/ReportTable";
-import SQLTestSection from "./components/SQLTestSection";
-import Chatbot from "./components/ChatBot";
+const App = () => {
+  const [LoginComponent, setLoginComponent] = useState(null);
+  const LOGIN_TYPE = import.meta.env.VITE_LOGIN_TYPE;
 
-function App() {
-  const contentRef = useRef(null); 
+  useEffect(() => {
+    const loadLoginComponent = async () => {
+      try {
+        let modulePath = null;
+
+        if (LOGIN_TYPE === "SSO") {
+          modulePath = "./auth/ssoAuth/SsoLoginWrapper.jsx";
+        } else if (LOGIN_TYPE === "CUSTOM") {
+          modulePath = "./auth/customAuth/CustomLoginWrapper.jsx";
+        }
+
+        if (modulePath) {
+          const { default: Component } = await import(/* @vite-ignore */ modulePath);
+          setLoginComponent(() => Component);
+        } else {
+          console.warn("Unsupported login type:", LOGIN_TYPE);
+        }
+      } catch (err) {
+        console.error("Failed to load login wrapper:", err);
+      }
+    };
+    loadLoginComponent();
+  }, [LOGIN_TYPE]);
+
   return (
-    <>
-      <Header />
-      <div className={styles.content} ref={contentRef}>
-        <div className={styles.wrapper}>
-          <div className={styles.leftWrapper}>
-              <FileUploadSection/>
-              <ChampionsTable/>
-          </div>
-          <div className={styles.rightWrapper}>
-            <FileProcessPrompt/>
-            <SQLTestSection/>
-          </div>
-        </div>
-          <ReportTable contentRef={contentRef}/>
-      </div>
-      {/* <Chatbot/> */}
-    </>
+     LoginComponent ? <LoginComponent /> : <div>Loading Login...</div>
   );
-}
+};
 
 export default App;

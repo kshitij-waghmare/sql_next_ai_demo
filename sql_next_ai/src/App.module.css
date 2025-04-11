@@ -24,7 +24,7 @@ textarea {
   padding: 1px 6px;
 }
 
-#root {
+.dashBoardWrapper {
   display: flex;
   flex-direction: column;
   height: 100vh;

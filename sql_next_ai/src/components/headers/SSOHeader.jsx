@@ -1,8 +1,8 @@
 import React from "react";
-import wordIcon from "../assets/word-icon.png";
-import styles from "./styles/Header.module.css";
+import wordIcon from "../../assets/word-icon.png";
+import styles from "../styles/Header.module.css";
 
-const Header = () => {
+const SSOHeader = () => {
   const documentPath = import.meta.env.VITE_REFERENCE_RD_PATH;
 
   return (
@@ -35,4 +35,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default SSOHeader;
