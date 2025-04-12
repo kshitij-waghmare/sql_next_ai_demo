@@ -6,7 +6,6 @@ import { ReportTable } from "./ReportTable";
 import SQLTestSection from "./SQLTestSection";
 
 const Dashboard = () => {
-  const contentRef = useRef(null);
   return (
     <div className={styles.content}>
       <div className={styles.wrapper}>
