@@ -7,7 +7,10 @@ const SSOHeader = () => {
 
   return (
     <header className={styles.appHeader}>
-      <div className={styles.leftHeader}>SQLNEXT.AI</div>
+      <div className={styles.leftHeader}>
+        <span className={styles.title} onClick={()=>{navigate('/')}}>SQLNEXT.AI</span>
+        <span className={styles.version}>version 1.0.0</span>
+      </div>
       <div className={styles.rightHeader}>
         <div
           onClick={() =>

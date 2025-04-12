@@ -1,6 +1,8 @@
 import axios from "axios";
 
 const API_URL = import.meta.env.VITE_API_URL;
+const LOGIN_TYPE = import.meta.env.VITE_LOGIN_TYPE;
+
 export const logUserAction = async (fetchUserInfo, instance, action, details = "") => {
   try {
     const userInfo = await fetchUserInfo(instance);
@@ -25,8 +27,15 @@ export const safeLogUserAction = async (msalInstance, action, details = "") => {
       // MSAL not available, silently skip logging
       return;
     }
+    let modulePath = null;
 
-    const { fetchUserInfo } = await import("../auth/ssoAuth/msal");
+    if(LOGIN_TYPE === 'SSO') {
+      modulePath = '../auth/ssoAuth/msal';
+    }
+    else if(LOGIN_TYPE === 'CUSTOM') {
+      modulePath = './'
+    }
+    const { fetchUserInfo } = await import(/* @vite-ignore */ modulePath);
 
     // Call the actual logging function
     await logUserAction(fetchUserInfo, msalInstance, action, details);

@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import styles from "../App.module.css";
 import ChampionsTable from "./ChampionsTable";
 import FileProcessPrompt from "./FileProcessPrompt";
@@ -7,9 +6,8 @@ import { ReportTable } from "./ReportTable";
 import SQLTestSection from "./SQLTestSection";
 
 const Dashboard = () => {
-  const contentRef = useRef(null);
   return (
-    <div className={styles.content} ref={contentRef}>
+    <div className={styles.content}>
       <div className={styles.wrapper}>
         <div className={styles.leftWrapper}>
           <FileUploadSection />
@@ -20,7 +18,7 @@ const Dashboard = () => {
           <SQLTestSection />
         </div>
       </div>
-      <ReportTable contentRef={contentRef} />
+      <ReportTable />
     </div>
   );
 };
