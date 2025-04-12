@@ -4,18 +4,18 @@ import CustomDataGrid from "./CustomDataGrid";
 import styles from "./styles/ReportTable.module.css";
 import { smoothScrollToBottom, smoothScrollToElement } from "../utils/helpers";
 
-export const ReportTable = ({ contentRef }) => {
+export const ReportTable = () => {
   const { reportStatus } = useSelector((store) => store.sqlTest);
   const { csvData } = reportStatus;
 
   useEffect(() => {
-    if (csvData && csvData.trim().length > 0 && contentRef.current) {
+    if (csvData && csvData.trim().length > 0) {
       const timeout = setTimeout(() => {
         // smoothScrollToBottom(contentRef.current, 2000); // duration
         const target = document.getElementById("reportContainer");
         const headerHeight = document.querySelector('header')?.offsetHeight || 0;
         if (target) {
-            smoothScrollToElement(contentRef.current, target, 800,headerHeight + 12);
+            smoothScrollToElement(document.documentElement, target, 800,headerHeight + 12);
           }
       }, 300);
 

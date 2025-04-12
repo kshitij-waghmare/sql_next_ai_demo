@@ -5,15 +5,13 @@
 }
 
 body {
-  font-family: 'Open-Sans', sans-serif;
   margin: 0;
   padding: 0;
   background-color: white;
-  /* overflow-y: auto; */
 }
 
 textarea {
-  font-family: 'Verdana', sans-serif;
+  font-family: inherit;
   font-size: 12px;
   padding: 5px;
   box-sizing: border-box;
@@ -27,14 +25,12 @@ textarea {
 .dashBoardWrapper {
   display: flex;
   flex-direction: column;
-  height: 100vh;
 }
 
 .content {
   padding: 20px;
   padding-top: 30px;
   flex-grow: 1;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 40px;
