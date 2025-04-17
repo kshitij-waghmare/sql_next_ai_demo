@@ -1,3 +1,4 @@
 sql_next_backend/node_modules
 sql_next_backend/.env
 sql_next_backend/models/reports
+.vscode
