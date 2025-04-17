@@ -1,14 +1,26 @@
 import React from "react";
 import wordIcon from "../../assets/word-icon.png";
 import styles from "../styles/Header.module.css";
+import MenuButton from "../MenuButton";
+import SideDrawer from "../SideDrawer";
+import { useNavigate } from "react-router-dom";
 
 const CustomLoginHeader = () => {
   const documentPath = import.meta.env.VITE_REFERENCE_RD_PATH;
+  const navigate = useNavigate();
+
+  const showRightElements = location.pathname.startsWith("/dashboard");
+  const showUserElements = location.pathname.startsWith("/dashboard") || location.pathname.startsWith("/adminboard");
+
 
   return (
     <header className={styles.appHeader}>
-      <div className={styles.leftHeader}>SQLNEXT.AI-----CUSTOM</div>
-      <div className={styles.rightHeader}>
+      <div className={styles.leftHeader}>
+        <div className={styles.title} onClick={()=>navigate('/')}>SQLNEXT.AI</div>
+      </div>
+      {
+        <div className={styles.desktopOnly}>
+      {showRightElements && <div className={styles.rightHeader}>
         <div
           onClick={() =>
             window.open("/helpPage", "_blank", "noopener,noreferrer")
@@ -30,7 +42,17 @@ const CustomLoginHeader = () => {
             alt="Download Word Document"
           />
         </a>
+      </div>}
       </div>
+      }
+      {showUserElements && <MenuButton/>}
+      {
+        <div className={styles.mobileOnly}>
+      <div className={styles.rightHeader}>
+          <SideDrawer />
+      </div>
+      </div>
+      }
     </header>
   );
 };
