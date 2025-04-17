@@ -56,6 +56,33 @@ textarea {
   gap: 20px;
 }
 
+.loadingScreen{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.spinner {
+  border: 4px solid #eee;
+  border-top: 4px solid var(--primary-color);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 1s linear infinite;
+}
+
+.loadingText {
+  font-size: 18px;
+  font-family: "League Spartan", serif;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 
 @media (max-width: 900px) {
   .wrapper {
@@ -67,5 +94,10 @@ textarea {
   .leftWrapper,
   .rightWrapper {
     width: 100%;
+  }
+
+  .spinner{
+    width: 50px;
+    height: 50px;
   }
 }

@@ -6,12 +6,15 @@ import { ReportTable } from "./ReportTable";
 import SQLTestSection from "./SQLTestSection";
 
 const Dashboard = () => {
+
+  const LOGIN_TYPE = import.meta.env.VITE_LOGIN_TYPE;
+
   return (
     <div className={styles.content}>
       <div className={styles.wrapper}>
         <div className={styles.leftWrapper}>
           <FileUploadSection />
-          <ChampionsTable />
+          {LOGIN_TYPE === 'SSO' && <ChampionsTable />}
         </div>
         <div className={styles.rightWrapper}>
           <FileProcessPrompt />

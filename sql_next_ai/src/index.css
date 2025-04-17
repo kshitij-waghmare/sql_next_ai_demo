@@ -26,5 +26,8 @@ code {
 
 :root {
   --primary-color: #093560;
+  --primary-hover: #072b4f;
   --secondary-color: #f0f0f0;
+  --white-color: #ffffff;
+  --black-color: #000000;
 }
