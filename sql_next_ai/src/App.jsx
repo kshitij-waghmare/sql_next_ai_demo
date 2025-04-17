@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import LoadingPage from "./pages/LoadingPage";
 
 const App = () => {
   const [LoginComponent, setLoginComponent] = useState(null);
@@ -29,7 +30,7 @@ const App = () => {
   }, [LOGIN_TYPE]);
 
   return (
-     LoginComponent ? <LoginComponent /> : <div>Loading Login...</div>
+     LoginComponent ? <LoginComponent /> : <LoadingPage />
   );
 };
 

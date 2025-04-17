@@ -18,8 +18,8 @@ const ChatbotToggler = () => {
     const handleChatBotVisibility = () => {
       const widget = document.getElementsByClassName(targetSelector)[0]; // Get chatbot element
       if (widget) {
-        // Hide chatbot on /helpPage, show it on other routes
-        widget.style.display = (location.pathname.includes("helpPage") || location.pathname.includes("referPrompt")) ? "none" : "block";
+        // Show chatbot only on Dashboard page
+        widget.style.display = (location.pathname === '/dashboard' || location.pathname === '/dashboard/') ? "block" : "none"; 
       }
     };
  
