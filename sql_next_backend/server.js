@@ -31,7 +31,7 @@ app.use(express.urlencoded({ extended: true }));
 // Custom origin function
 const corsOptions = {
   origin: '*',
-  methods: ['GET', 'POST'],
+  methods: ['GET', 'POST','PUT','DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true, 
 };

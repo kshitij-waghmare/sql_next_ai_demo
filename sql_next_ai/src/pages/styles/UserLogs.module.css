@@ -1,0 +1,176 @@
+/* Search Bar */
+.searchSection {
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.searchSection form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.searchSection input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.searchSection button {
+    background-color: #093560;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.searchSection button:hover {
+    background-color: #004466;
+}
+
+/* Table Styling */
+.userTable,
+.logTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.userTable th,
+.userTable td,
+.logTable th,
+.logTable td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 14px;
+}
+
+.userTable button,
+.userLogSection button {
+    background-color: #093560;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.userTable button:hover,
+.userLogSection button :hover {
+    background-color: #004466;
+}
+
+.userTable th,
+.logTable th {
+    background-color: #093560;
+    color: white;
+    font-size: 16px;
+}
+
+.userTable tbody tr:nth-child(even),
+.logTable tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.userTable tbody tr:hover,
+.logTable tbody tr:hover {
+    background-color: #e3f2fd;
+}
+
+/* User Log Section */
+.userLogSection {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.userLogSection h3 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-family: "League Spartan", serif;
+}
+
+.userLogSection button {
+    display: block;
+    margin-bottom: 10px;
+    background-color: #093560;
+}
+
+.userLogSection button:hover {
+    background-color: #004466;
+}
+
+.downloadBtn {
+    margin-top: 20px;
+    height: 35px;
+}
+
+.logBtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.backBtn {
+    height: 35px;
+    margin-top: 20px;
+}
+
+h3 {
+    font-size: 30px;
+    font-family: "League Spartan", serif;
+    text-transform: uppercase;
+}
+
+/* Pagination Styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.paginationBtn {
+    background-color: #093560;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.paginationBtn:hover {
+    background-color: #0056b3;
+}
+
+.paginationBtn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.paginationBtn.active {
+    background-color: #28a745;
+}

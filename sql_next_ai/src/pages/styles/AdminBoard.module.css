@@ -1,0 +1,64 @@
+/* AdminBoard.module.css */
+.mainLayout {
+    padding: 20px 30px;
+}
+.adminBoardContainer {
+    font-family: 'League Spartan', sans-serif;
+  }
+  
+  .title {
+    font-size: 24px;
+    padding: 20px 0px;
+    font-weight: 600;
+    color: var(--primary-color);
+    cursor: pointer;
+  }
+  
+  .cardContainer {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap into multiple lines */
+    justify-content:center; /* Distribute cards evenly */
+    gap: 40px;
+  }
+  
+  .card {
+    background-color: var(--white-color, #fff);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow:  0 4px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    text-align: center;
+    font-weight: 500;
+    color: var(--primary-color, #007bff);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 150px; /* Fixed width for the card */
+    height: 150px; /* Adjust the height for a square card */
+    position: relative;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for background color and transform */
+  }
+  
+  .card:hover {
+    background-color: #f9f9f9; /* Change background on hover */
+    transform: translateY(-5px); /* Slightly lift the card on hover */
+  }
+  
+  .icon {
+    font-size: 24px;
+    color: var(--primary-color, #007bff);
+  }
+  
+  .label {
+    font-size: 18px;
+    color: var(--primary-color, #007bff);
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Optional hover effect for the label if desired */
+  .card:hover .label {
+    opacity: 1; /* Reveal label on hover */
+  }
+  

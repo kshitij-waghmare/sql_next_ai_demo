@@ -14,6 +14,7 @@
     "@azure/msal-react": "^3.0.2",
     "@reduxjs/toolkit": "^2.6.1",
     "axios": "^1.7.9",
+    "lodash.isequal": "^4.5.0",
     "react": "^18.3.1",
     "react-data-grid": "^7.0.0-beta.34",
     "react-dom": "^18.3.1",

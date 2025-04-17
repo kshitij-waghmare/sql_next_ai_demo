@@ -1,0 +1,259 @@
+/* Adjust main content padding to prevent overlap */
+.mainContent {
+    margin-left: 0;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.createUserSection,
+.roleUpdateSection {
+    text-align: center;
+    margin: auto;
+    max-width: 500px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.createUserForm input {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: "Open Sans", serif;
+}
+
+.submitButton {
+    padding: 12px 20px;
+    background-color: #1f7bd5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submitButton:hover {
+    background-color: #0056b3;
+}
+
+/* Session Expired & Logout Alert */
+.sessionExpiredMessage,
+.logoutAlert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    background-color: white;
+    border: 2px solid #f44336;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 1000;
+    padding: 20px;
+    font-family: "Open Sans", serif;
+}
+
+.sessionExpiredMessage p,
+.logoutAlert p {
+    font-size: 18px;
+    color: #333;
+    margin-top: 10px;
+}
+
+.logoutButtons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+
+.confirmButton,
+.cancelButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: "Open Sans", serif;
+}
+
+.confirmButton {
+    background-color: #dc3545;
+    color: white;
+}
+
+.confirmButton:hover {
+    background-color: #c82333;
+}
+
+.cancelButton {
+    background-color: grey;
+    color: white;
+}
+
+.cancelButton:hover {
+    background-color: #5a5a5a;
+}
+
+.otpSection {
+    display: flex;
+    gap: 10px;
+    /* Space between the boxes */
+    justify-content: center;
+    /* Center alignment */
+    margin-top: 15px;
+}
+
+.otpSection input {
+    width: 40px;
+    /* Width of each box */
+    height: 40px;
+    /* Height of each box */
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+.otpSection input:focus {
+    border-color: #164188;
+    /* Highlight color on focus */
+    box-shadow: 0 0 5px rgba(22, 65, 136, 0.5);
+}
+
+/* Add styling for form fields */
+.createUserForm input,
+.createUserForm select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.createUserForm select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 30px;
+    /* to make space for the dropdown arrow */
+}
+
+.createUserForm button {
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.createUserForm button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Ensure the form stays within the container */
+.createUserSection {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Style for the role dropdown */
+.createUserForm select {
+    width: 100%;
+}
+
+/* Style the OTP input fields */
+.otpSection input {
+    width: 50px;
+    margin: 5px;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.createUserForm label {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    font-weight: bold;
+}
+
+.createUserForm button {
+    width: 100%;
+    background-color: #164188;
+    color: white;
+    padding: 10px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+    font-family: "Open Sans", serif;
+}
+
+.createUserForm button:hover {
+    background-color: #093560;
+    font-family: "Open Sans", serif;
+}
+
+.emailError {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.successMessage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    background-color: white;
+    border: 2px solid #4caf50;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 1000;
+    padding: 20px;
+    font-family: "Open Sans", serif;
+}
+
+.successMessage::before {
+    content: '✔';
+    font-size: 36px;
+    color: #4caf50;
+    display: block;
+    font-family: "Open Sans", serif;
+}
+
+.popup {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #003366;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    font-size: 16px;
+    z-index: 1000;
+    animation: fadeOut 3s forwards;
+    font-family: "Open Sans", serif;
+}

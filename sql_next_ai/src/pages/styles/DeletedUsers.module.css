@@ -1,0 +1,64 @@
+.deletedUsersContainer {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.deletedUsersTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.deletedUsersTable th,
+.deletedUsersTable td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.deleted {
+    color: red;
+    font-weight: bold;
+}
+
+.pending {
+    color: orange;
+    font-weight: bold;
+}
+
+.viewDeletedUsersBtn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.viewDeletedUsersBtn:hover {
+    background-color: #0056b3;
+}
+
+.deletedUsersTable th {
+    background-color: #093560;
+    color: white;
+    font-family: "Open Sans", serif;
+}
+
+.deletedUsersTable td {
+    font-family: "Open Sans", serif;
+    font-size: 14px;
+}
+
+.deletedUsersTable tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.deletedUsersTable tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.deletedUsersTable tr:hover {
+    background-color: #d1e7fd;
+}

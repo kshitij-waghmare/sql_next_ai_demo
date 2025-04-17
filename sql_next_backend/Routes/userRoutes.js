@@ -127,7 +127,7 @@ router.post('/login', async (req, res) => {
 
      
         // Generate JWT token
-        const token = jwt.sign({ email }, JWT_SECRET, { expiresIn: TOKEN_EXPIRY });
+        const token = jwt.sign({ email, sub: user._id }, JWT_SECRET, { expiresIn: TOKEN_EXPIRY });
 
         // Find or create "session start" activity type
         let sessionStartActivity = await ActivityType.findOne({ activity_name: 'session start' });

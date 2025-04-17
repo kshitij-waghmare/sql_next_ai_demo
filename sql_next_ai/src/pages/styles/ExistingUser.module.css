@@ -1,0 +1,126 @@
+    
+  /* Table CSS */
+  .userTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .userTable th,
+  .userTable td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-family: "Open Sans", serif;
+    font-size: 14px;
+  }
+  
+  .userTable th {
+    background-color: #093560;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .userTable tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .userTable tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+  }
+  
+  .userTable tr:hover {
+    background-color: #d1e7fd;
+  }
+  
+  /* Action Buttons */
+  .updateButton,
+  .deleteButton {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 2px;
+    font-size: 14px;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .updateButton {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .deleteButton {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .updateButton:hover {
+    background-color: #218838;
+  }
+  
+  .deleteButton:hover {
+    background-color: #c82333;
+  }
+  
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: "League Spartan";
+  }
+  
+  /* Pagination Styles */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .paginationBtn {
+    background-color: #093560;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .paginationBtn:hover {
+    background-color: #0056b3;
+  }
+  
+  .paginationBtn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .paginationBtn.active {
+    background-color: #28a745;
+  }
+  
+  /* Search Bar Styles */
+  .searchBar input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+  }
+  
+  .searchBar input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .searchBar input[type="text"]::placeholder {
+    color: #ccc;
+  }
+  

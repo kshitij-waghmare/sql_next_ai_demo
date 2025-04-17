@@ -1,0 +1,147 @@
+/* Center login box in the middle of the screen */
+.loginBox {
+    width: 100%;
+    max-width: 500px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative;
+}
+
+.loginHeader {
+    text-align: center;
+    color: white;
+    background-color: #003366;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.loginHeader h1 {
+    margin: 0;
+    font-size: 24px;
+    font-family: "Open Sans", serif;
+}
+
+.loginHeader p {
+    margin: 0;
+    font-size: 12px;
+}
+
+.loginBox {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+
+.loginTitle {
+    color: #000000;
+    margin-bottom: 20px;
+    font-family: 'Open Sans, Bold', Open Sans;
+}
+
+.loginInputGroup {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.loginInputGroup label {
+    font-weight: bolder;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+    font-family: "Open Sans", serif;
+}
+
+.loginInputGroup input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.loginButton {
+    background-color: #164188;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    font-family: "Open Sans", serif;
+}
+
+.loginButton:hover {
+    background-color: #093560;
+}
+
+.forgotPassword {
+    cursor: pointer;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #002244;
+    font-family: "Open Sans", serif;
+    text-align: right;
+}
+
+.signUpLink {
+    color: #002244;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.signUpRedirect {
+    font-family: "Open Sans", serif;
+}
+
+.signUpRedirect p {
+    color: black;
+}
+
+.signUpLink {
+    font-family: "Open Sans", serif;
+}
+
+.successMessage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    background-color: white;
+    border: 2px solid #4caf50;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 1000;
+    padding: 20px;
+    font-family: "Open Sans", serif;
+}
+
+.successMessage::before {
+    content: '✔ ';
+    font-size: 36px;
+    color: #4caf50;
+    display: block;
+    font-family: "Open Sans", serif;
+}
+
+.errorMessageLogin p {
+    color: red;
+    /* margin-top: -10px; */
+    margin-bottom: 10px;
+    font-size: 14px;
+}
