@@ -14,6 +14,10 @@ const MainLayout = () => {
     return <Outlet />;
   }
 
+  const hideHeader = location.pathname.startsWith('/helpPage');
+
+  if (hideHeader) return <Outlet />;
+
   return (
     <div className={styles.dashBoardWrapper}>
       {LOGIN_TYPE === "SSO" ? <SSOHeader /> : <CustomLoginHeader />}

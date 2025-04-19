@@ -1,0 +1,267 @@
+.wrapper * {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  /* Header Section */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 35px;
+    background-color: #F8F8F8;
+  }
+  
+  .header4 {
+    font-size: 14px;
+    text-align: left;
+    letter-spacing: 0px;
+    color: #707070;
+    opacity: 1;
+    font-weight: bold;
+  }
+  
+  .headerHeadingIcx {
+    text-align: left;
+    letter-spacing: 0px;
+    color: #011589;
+    font-weight: bold;
+    font-size: 30px;
+  }
+  
+  .headerHeadingPro {
+    text-align: left;
+    letter-spacing: 0px;
+    color: #2d8a93;
+    font-weight: bold;
+    font-size: 30px;
+  }
+  
+  .subHeading {
+    font-size: 20px;
+    font-weight: normal;
+  }
+  
+  .header .right {
+    display: flex;
+    gap: 30px;
+  }
+  
+  .headerText {
+    margin-right: 20px;
+    text-align: left;
+    font-size: 16px;
+    letter-spacing: 0px;
+    opacity: 1;
+    text-decoration: none;
+    color: #3B3B3B;
+    font-weight: bold;
+  }
+  
+  .header .right .headerText:hover {
+    text-decoration: none;
+  }
+  
+  /* Second Section */
+  .secondSection {
+    height: 300px;
+    position: relative;
+    text-align: center;
+  }
+  
+  .mainImage {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .exploreBtn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Overlay Container */
+  .textOverlaySolution {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center; /* Center text horizontally */
+    z-index: 1; /* Ensure the text is always on top of the image */
+    padding: 10px;
+    width: 100%; /* Ensure the overlay takes full width */
+  }
+  
+  /* Heading Styling (h2) */
+  .textOverlaySolution h2 {
+    font-size: 35px;
+    margin-bottom: 10px;
+    letter-spacing: 1px; /* Optional: adjust for spacing between letters */
+    color: #FFFFFF;
+    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.6); /* Slight shadow for better visibility */
+    text-transform: uppercase;
+    opacity: 1;
+  }
+  
+  /* Sub-heading Styling (h3) */
+  .textOverlaySolution h3 {
+    font-size: 25px; /* Reduced size to fit well under h2 */
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.6);
+    text-transform: uppercase;
+    opacity: 1;
+  }
+  
+  .imageContainerSolution {
+    position: relative;
+    text-align: center;
+  }
+  
+  /* Third Section Layout */
+  .thirdSection {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* Card Style */
+  .card {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%;
+    background-color: #F2F2F2;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Left Card */
+  .leftCard {
+    width: 25%;
+    padding: 15px;
+    justify-content: start;
+  }
+  
+  /* Right Card */
+  .rightCard {
+    flex-grow: 1;
+    min-height: 300px; /* Adjust based on your content */
+  }
+  
+  /* Left Content (Icon Options) */
+  .leftContent {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-weight: bold;
+  }
+  
+  .iconOption {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .iconOption:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .iconOption img {
+    width: 30px;
+    height: 30px;
+  }
+  
+  /* Right Content */
+  .rightContent {
+    padding: 20px;
+  }
+  
+  .rightContent h3 {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  /* Optional Active Icon Styling */
+  .iconOptionActive {
+    background-color: #0099A8;
+    color: white;
+  }
+  
+  .iconOptionActive img {
+    filter: invert(1);
+  }
+  
+  h5 {
+    font-size: 16px;
+    text-align: left;
+    letter-spacing: 0px;    
+    font-style: bold;
+    opacity: 1;
+  }
+  
+  /* Container for the whole section */
+  .promptsContainer {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Heading styling */
+  .heading {
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  /* Style for each prompt card */
+  .promptCard {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  /* Title of the prompt */
+  .promptTitle {
+    font-size: 1em;
+    margin-bottom: 10px;
+  }
+  
+  /* Description text for each prompt */
+  .promptDescription {
+    font-size: 1em;
+    line-height: 1.6;
+  }
+  
+  /* CSS for div containing video */
+  .videoContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  /* CSS for video */
+  .videoPlayer {
+    border: 2px solid #333;
+    border-radius: 10px;
+  }
+  
