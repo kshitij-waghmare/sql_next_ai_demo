@@ -1,0 +1,28 @@
+ .tableWrapper {
+     display: flex;
+     flex-direction: column;
+     height: 100%;
+     gap: 20px;
+     padding: 20px 10px;
+ }
+
+ .promptTable {
+     flex-grow: 1;
+     border-collapse: collapse;
+     min-width: 800px;
+ }
+
+ .promptTable th,
+ .promptTable td {
+     border: 1px solid #ccc;
+     padding: 10px;
+     text-align: left;
+     vertical-align: top;
+     white-space: pre-wrap;
+     word-break: break-word;
+ }
+
+ .promptTable thead {
+     background-color: #f7f7f7;
+     font-weight: bold;
+ }

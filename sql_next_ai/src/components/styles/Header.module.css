@@ -56,12 +56,13 @@
     margin-left: 3px;
 }
 
-.helpBtn {
+.helpBtn, .referPrompt {
     cursor: pointer;
 }
 
 .helpBtn:hover,
-.downloadRdLink:hover {
+.downloadRdLink:hover,
+.referPrompt:hover {
     color: rgb(180, 174, 174);
 }
 
