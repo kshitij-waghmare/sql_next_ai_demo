@@ -1,0 +1,113 @@
+{
+    "promptData": [
+      {
+        "category": "SCM",
+        "sqlPrompt": "Provide a query to fetch the purchase order information like po number, amount, type, status, and supplier name from po_headers_all, po_lines_all, po_distributions_all, po_line_locations_all tables",
+        "queryFrom": "Michael-R3"
+      },
+      {
+        "category": "SCM",
+        "sqlPrompt": "Provide query to fetch interface tables information when importing items through batch import program",
+        "queryFrom": "Michael-R7"
+      },
+      {
+        "category": "SCM",
+        "sqlPrompt": "Please suggest sql query to fetch the business unit name for the purchase orders",
+        "queryFrom": "Michael-R12"
+      },
+      {
+        "category": "Procurement",
+        "sqlPrompt": "I will provide you with multiple prompts, each consisting of two parts — Part A and Part B. Your task is to: Create a separate query for Part A Create a separate query for Part B Then, generate a combined query that incorporates both Part A and Part B. \n\nSo first  generate the Part A query, Prompt for that is given as follow : Provide a SQL Query to get standard purchase order records and include the columns like PO Number,Supplier Name,Supplier Site,Line number \n\nIn Part B, Give the Query for the following columns : Item description, Total Amount, Line amount\n\nAs both Part A and Part B query is working, give the combined working query for this "
+      },
+      {
+        "category": "Procurement",
+        "sqlPrompt": "Provide a SQL Query to get the active buyer details across each business unit. Include columns like buyer name,first name,last name,user name,business unit etc",
+        "queryFrom": "Rubakumar-R35"
+      },
+      {
+        "category": "Procurement",
+        "sqlPrompt": "SQL Query to get the blanket agreement change order which was rejected during approval process and the change order is not canceled",
+        "queryFrom": "Rubakumar-R7"
+      },
+      {
+        "category": "Payables",
+        "sqlPrompt": "Provide a SQL Query to get the payments which are voided.Please include columns like Supplier Name,Invoice number,Invoice Date,Invoice Amount,Void Date,Amount Paid etc",
+        "queryFrom": "Rubakumar-R14"
+      },
+      {
+        "category": "Payables",
+        "sqlPrompt": "Provide a SQL Query to get the payments which are negotiated.Please include columns like Supplier Name,Invoice number,Invoice Date,Invoice Amount,Void Date,Amount Paid etc",
+        "queryFrom": "Rubakumar-R15"
+      },
+  
+      {
+        "category": "Payables",
+        "sqlPrompt": "Provide a SQL Query to get the AP Invoice validation status.Please include columns like Invoice number,Invoice Date,Invoice Amount,Supplier etc",
+        "queryFrom": "Rubakumar-R16"
+      },
+      {
+        "category": "Inventory",
+        "sqlPrompt": "Provide a SQL Query to get the inventory transaction types . Include columns like transatcion type name,description,start date,end date etc",
+        "queryFrom": "Rubakumar-R34"
+      },
+      {
+        "category": "Inventory",
+        "sqlPrompt": "Create a report which provide details of Supplier and On hand Quantities of Item and Item Details",
+        "queryFrom": "Sumit-R3"
+      },
+  
+      {
+        "category": "Inventory",
+        "sqlPrompt": "Query to get Item Details and Item Lot details.",
+        "queryFrom": "Sumit-R24"
+      },
+      {
+        "category": "General Ledger",
+        "sqlPrompt": "Provide a SQL Query to get the gl_code_combinations description in concatenated format. Include columns like detail posting allowed flag,detail budgeting allowed flag,account type,enabled flag,summary flag,concatenated segments etc",
+        "queryFrom": "Rubakumar-R27"
+      },
+      {
+        "category": "General Ledger",
+        "sqlPrompt": "Query to fetch chart of accounts details",
+        "queryFrom": "Sumit-R18"
+      },
+  
+      {
+        "category": "General Ledger",
+        "sqlPrompt": "Query to get Item Details and Item Lot details.",
+        "queryFrom": "Sumit-R24"
+      },
+      {
+        "category": "HCM",
+        "sqlPrompt": "In Fusion HCM - Core HR module , Query to Get Employees Area of Responsibility (AOR)in oracle Fusion HCM",
+        "queryFrom": "Anil-R7"
+      },
+      {
+        "category": "HCM",
+        "sqlPrompt": "In Fusion HCM - Core HR and  Payroll module ,Query to fetch Legal Employer and Payroll of an employee in Oracle Cloud HCM",
+        "queryFrom": "Anil-R5"
+      },
+      {
+        "category": "HCM",
+        "sqlPrompt": "In Fusion HCM - sql Query to fetch delivery option details for hcm extracts with below details -DEFINITION_NAME,DESCRIPTION,BASE_DELIVERY_OPTION_NAME,DATE_TO,DATE_FROM,DELIVERY_TYPE,BIP_REPORT_NAME,BIP_TEMPLATE_NAME,OUTPUT_TYPE,OUTPUT_NAME,OUTPUT_DIRECTORY_NAME",
+        "queryFrom": "Anil-R9"
+      },
+      {
+        "category": "FIN",
+        "sqlPrompt": "Provide query to get the payables invoices details like invoice number, invoice currency, invoice amount, payment terms, vendor name, invoice type and description. I dont want payment terms ID, but I want the name of the payment term instead. Also I don’t want the vendor ID,  but I want the name of the vendor",
+        "queryFrom": "Michael-R10"
+      },
+  
+      {
+        "category": "FIN",
+        "sqlPrompt": "Provide query to fetch the ar invoices created in the last 2 days, please include the columns transaction number, transaction date, waybill number, document status, sold to party name",
+        "queryFrom": "Michael-R9"
+      },
+      {
+        "category": "FIN",
+        "sqlPrompt": "Provide query to get the payables invoices details like invoice number, invoice currency, invoice amount, vendor name, invoice type and description. I dont want vendor ID, but I want the name of the vendor instead.",
+        "queryFrom": "Michael-R6"
+      }
+    ]
+  }
+  

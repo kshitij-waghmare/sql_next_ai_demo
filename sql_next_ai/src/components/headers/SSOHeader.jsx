@@ -1,8 +1,11 @@
 import React from "react";
 import wordIcon from "../../assets/word-icon.png";
 import styles from "../styles/Header.module.css";
+import { useNavigate } from "react-router-dom";
 
 const SSOHeader = () => {
+
+  const navigate = useNavigate();
   const documentPath = import.meta.env.VITE_REFERENCE_RD_PATH;
 
   return (
@@ -12,6 +15,11 @@ const SSOHeader = () => {
         <span className={styles.version}>version 1.0.0</span>
       </div>
       <div className={styles.rightHeader}>
+        <div>
+          <span className={styles.referPrompt} onClick={() => navigate("/promptBoard")}>
+            Reference Prompt
+          </span>
+        </div>
         <div
           onClick={() =>
             window.open("/helpPage", "_blank", "noopener,noreferrer")
